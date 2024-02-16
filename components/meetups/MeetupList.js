@@ -1,6 +1,6 @@
-import MeetupItem from './MeetupItem';
-import classes from './MeetupList.module.css';
-
+import MeetupItem from "./MeetupItem"
+import classes from "./MeetupList.module.css"
+// import '../../pages/api/new-meetup-handler'
 function MeetupList(props) {
   return (
     <ul className={classes.list}>
@@ -14,7 +14,17 @@ function MeetupList(props) {
         />
       ))}
     </ul>
-  );
+  )
 }
 
-export default MeetupList;
+export default MeetupList
+// export async function getStaticProps() {
+//   const res = await fetch("../../pages/api/new-meetup-handler")
+//   const data = await res.json()
+//    console.log(data);
+//   return {
+//     props: {
+//       meetups: data,
+//     },
+//   }
+// }
