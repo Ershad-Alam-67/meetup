@@ -6,6 +6,7 @@ function MeetupItem(props) {
   const handleShowMeetup = (id) => {
     router.push("/" + id)
   }
+  console.log(props, "this is props")
   return (
     <li className={classes.item}>
       <Card>

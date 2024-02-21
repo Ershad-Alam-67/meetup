@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useContext, useState } from "react"
 import MeetupList from "../components/meetups/MeetupList"
 import Layout from "../components/layout/Layout"
+import MyContext from "./MyContext"
 // import '../pages/api/new-meetup-handler'
 // export const meetups = [
 //   {
@@ -26,6 +27,8 @@ import Layout from "../components/layout/Layout"
 //   },
 // ]
 const Index = ({ meetups }) => {
+  const context = useContext(MyContext)
+  context.setMeetups(meetups)
   return (
     <div>
       <Layout>
@@ -39,7 +42,7 @@ export default Index
 export async function getStaticProps() {
   const res = await fetch("http://localhost:3000/api/new-meetup-handler")
   const data = await res.json()
-  console.log(data)
+  console.log(data, "datadata")
   return {
     props: {
       meetups: data,

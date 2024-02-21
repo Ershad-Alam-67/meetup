@@ -19,7 +19,7 @@ const handler = async (req, res) => {
     const db = client.db()
     const collection = db.collection("meetups")
     const data = await collection.find({}).toArray()
-    console.log(data)
+    console.log(data, "..........")
     res.status(200).json(data)
   }
 }
