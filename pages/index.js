@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react"
 import MeetupList from "../components/meetups/MeetupList"
 import Layout from "../components/layout/Layout"
 import MyContext from "./MyContext"
+import { Fragment } from "react"
+import Head from "next/head"
 // import '../pages/api/new-meetup-handler'
 // export const meetups = [
 //   {
@@ -30,11 +32,24 @@ const Index = ({ meetups }) => {
   const context = useContext(MyContext)
   context.setMeetups(meetups)
   return (
-    <div>
+    <Fragment>
+      <Head>
+        <title>Meetup List</title>
+        <meta
+          name="description"
+          content="A list of meetups fetched from an API"
+        />
+        <meta property="og:title" content="Your Meetup List Title" />
+        <meta
+          property="og:description"
+          content="A detailed description of your page content"
+        />
+      </Head>
+
       <Layout>
         <MeetupList meetups={meetups}></MeetupList>
       </Layout>
-    </div>
+    </Fragment>
   )
 }
 
